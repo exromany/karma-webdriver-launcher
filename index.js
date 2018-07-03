@@ -81,6 +81,10 @@ var WebDriverInstance = function (baseBrowserDecorator, args, logger) {
 
     self.driver = wd.remote(config, 'promiseChain');
     self.browser = self.driver.init(spec);
+   
+    setTimeout(function () {
+      console.log('--== driver.sessionID', self.driver.sessionID, '==--');
+    }, 3000);
 
     var interval = args.pseudoActivityInterval && setInterval(function() {
       log.debug('Imitate activity');
